@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float damage = 10f;
+    public float damage = 20f;
     public string targetTag = "Enemy";
 
     private void OnTriggerEnter(Collider other)

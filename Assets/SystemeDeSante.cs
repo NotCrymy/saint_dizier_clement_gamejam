@@ -5,6 +5,7 @@ public class SystemeDeSante : MonoBehaviour
     public event System.Action<float> OnchangedSante;
     [SerializeField] private float maxSante = 100f;
     [SerializeField] private float actuelleSante;
+    public Canvas deathCanvas;
 
     public float MaxSante
     {
@@ -53,9 +54,18 @@ public class SystemeDeSante : MonoBehaviour
 
         if (actuelleSante <= 0)
         {
-            // On peut placer ici la mort (ou faire une classe externe)
+            if(tag == "Player")
+            {
+                // Gérer la mort du joueur 
+                deathCanvas.gameObject.SetActive(true);
+                Destroy(gameObject);
+            }
+            else
+            {
+                // Gérer la mort des ennemis ou autres entités
+                Destroy(gameObject);
+            }
             Debug.Log($"{gameObject.name} est mort !");
-            Destroy(gameObject);
         }
     }
 

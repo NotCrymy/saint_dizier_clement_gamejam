@@ -2,21 +2,35 @@ using UnityEngine;
 
 public class Poursuite : MonoBehaviour
 {
-    public GameObject Cible;
-    public float v = 2f; // vitesse
+    [Header("Cible à poursuivre")]
+    public Transform cible;
+
+    [Header("Paramètres de mouvement")]
+    public float vitesse = 2f;
+    public float rotationVitesse = 5f;
+    public float distanceArret = 1.2f;
 
     void Update()
     {
-        // C(t) = pos de l’objet
-        Vector3 c = transform.position;
+        if (cible == null) return;
 
-        // S(t) = pos de la cible
-        Vector3 s = Cible.transform.position;
+        // Direction vers la cible
+        Vector3 direction = (cible.position - transform.position);
+        direction.y = 0f; // Ne pas incliner vers le haut ou le bas
 
-        // (S(t) - C(t) / norm de S-C)
-        Vector3 dirNorm = (s - c).normalized;
+        float distance = direction.magnitude;
 
-        // C(t + delta t) = C(t) + v * dirNorm * delata t
-        transform.position = c + dirNorm * v * Time.deltaTime;
+        // Rotation progressive vers la cible
+        if (direction != Vector3.zero)
+        {
+            Quaternion rotationVoulue = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotationVoulue, rotationVitesse * Time.deltaTime);
+        }
+
+        // Déplacement seulement si la cible n’est pas trop proche
+        if (distance > distanceArret)
+        {
+            transform.position += transform.forward * vitesse * Time.deltaTime;
+        }
     }
 }
