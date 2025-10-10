@@ -3,26 +3,29 @@ using System.Collections;
 
 public class Attack : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
     public GameObject Projectile;
     public Transform Emitter;
-    public float frequency;
-    public int Number;
+    public float frequency = 0.5f; // temps entre les tirs
+    public int Number = 1;          // nombre de projectiles par "salve"
 
-    void Start()
-    {
+    private Coroutine shootingCoroutine = null; // référence pour stopper la coroutine
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        //Debug.DrawLine(Emitter.position, Vector, Color.red);
-
+        // Quand on appuie sur Ctrl
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            StartCoroutine(BulletLaunching());
+            if (shootingCoroutine == null)
+            {
+                // Démarre le tir
+                shootingCoroutine = StartCoroutine(BulletLaunching());
+            }
+            else
+            {
+                // Stop le tir
+                StopCoroutine(shootingCoroutine);
+                shootingCoroutine = null;
+            }
         }
     }
 
@@ -31,19 +34,19 @@ public class Attack : MonoBehaviour
         StopAllCoroutines();
     }
 
-
     IEnumerator BulletLaunching()
     {
-        for (int i = 0; i < Number; i++)
+        while (true) // tir automatique tant que la coroutine tourne
         {
-            GameObject bullet = Instantiate(Projectile, Emitter.position, Emitter.rotation);
+            for (int i = 0; i < Number; i++)
+            {
+                GameObject bullet = Instantiate(Projectile, Emitter.position, Emitter.rotation);
+                Destroy(bullet, 2f);
 
-            // ajoute un destroy automatique uniquement au clone :
-            Destroy(bullet, 2f);
-
-            Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            if (rb != null)
-                rb.AddForce(-100f * Emitter.forward, ForceMode.Impulse);
+                Rigidbody rb = bullet.GetComponent<Rigidbody>();
+                if (rb != null)
+                    rb.AddForce(100f * Emitter.forward, ForceMode.Impulse);
+            }
 
             yield return new WaitForSeconds(frequency);
         }
