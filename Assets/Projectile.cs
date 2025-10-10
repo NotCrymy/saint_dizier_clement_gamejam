@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // script que j ai ajoute a mon prefab de bullet
-public class BulletDamage : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     public float damage = 10f;
 

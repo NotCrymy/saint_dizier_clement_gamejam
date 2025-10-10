@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Attac : MonoBehaviour
+public class Attack : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -22,7 +22,7 @@ public class Attac : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            StartCoroutine(Attack());
+            StartCoroutine(BulletLaunching());
         }
     }
 
@@ -32,14 +32,14 @@ public class Attac : MonoBehaviour
     }
 
 
-    IEnumerator Attack()
+    IEnumerator BulletLaunching()
     {
         for (int i = 0; i < Number; i++)
         {
             GameObject bullet = Instantiate(Projectile, Emitter.position, Emitter.rotation);
 
             // ajoute un destroy automatique uniquement au clone :
-            Destroy(bullet, 10f);
+            Destroy(bullet, 2f);
 
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
             if (rb != null)
