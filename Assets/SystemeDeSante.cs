@@ -55,7 +55,7 @@ public class SystemeDeSante : MonoBehaviour
         {
             // On peut placer ici la mort (ou faire une classe externe)
             Debug.Log($"{gameObject.name} est mort !");
-            Destroy(gameObject, 5f);
+            Destroy(gameObject);
         }
     }
 
