@@ -1,37 +1,34 @@
 using UnityEngine;
+using System.Collections;
 
 public class SystemeDeSante : MonoBehaviour
 {
     public event System.Action<float> OnchangedSante;
+
     [SerializeField] private float maxSante = 100f;
     [SerializeField] private float actuelleSante;
     public Canvas deathCanvas;
 
-    public float MaxSante
-    {
-        get { return maxSante; }
-    }
+    private Animator animator;
+    private bool isDead = false;
 
-    public float ActuelleSante
-    {
-        get { return actuelleSante; }
-    }
-
-    public bool IsDead
-    {
-        get { return actuelleSante <= 0; }
-    }
+    public float MaxSante => maxSante;
+    public float ActuelleSante => actuelleSante;
+    public bool IsDead => actuelleSante <= 0;
 
     private void Start()
     {
-        // Initialise avec la santé maximale quand le jeu est lancé
         actuelleSante = maxSante;
+        animator = GetComponent<Animator>();
+
+        // Assurer que le zombie démarre sur l'animation Walking
+        if (animator != null)
+        {
+            animator.SetBool("IsDead", false);
+        }
 
         // Informe les autres classes à propos de la santé initiale
-        if (OnchangedSante != null)
-        {
-            OnchangedSante(ObtenirSanteNormalisee());
-        }
+        OnchangedSante?.Invoke(ObtenirSanteNormalisee());
     }
 
     public float ObtenirSanteNormalisee()
@@ -41,43 +38,66 @@ public class SystemeDeSante : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (IsDead) return;
+        if (isDead) return;
 
         actuelleSante = Mathf.Clamp(actuelleSante - damage, 0f, maxSante);
         Debug.Log($"{gameObject.name} took {damage} damage. Health: {actuelleSante}/{maxSante}");
 
-        // Notifier les "listeners" de la modification de la santé
-        if (OnchangedSante != null)
-        {
-            OnchangedSante(ObtenirSanteNormalisee());
-        }
+        OnchangedSante?.Invoke(ObtenirSanteNormalisee());
 
         if (actuelleSante <= 0)
         {
-            if(tag == "Player")
-            {
-                // Gérer la mort du joueur 
-                deathCanvas.gameObject.SetActive(true);
-                Destroy(gameObject);
-            }
-            else
-            {
-                // Gérer la mort des ennemis ou autres entités
-                Destroy(gameObject);
-            }
-            Debug.Log($"{gameObject.name} est mort !");
+            Mourir();
         }
+    }
+
+    private void Mourir()
+    {
+        if (isDead) return;
+        isDead = true;
+                
+        Debug.Log($"{gameObject.name} est mort !");
+
+        if (animator != null)
+        {
+            // Arrêter la marche et lancer la mort
+            animator.SetBool("IsDead", true);
+        }
+
+        if (CompareTag("Player"))
+        {
+            // Mort du joueur
+            if (deathCanvas != null)
+                deathCanvas.gameObject.SetActive(true);
+
+            Destroy(gameObject);
+        }
+        else
+        {
+            StartCoroutine(HandleEnemyDeath());
+        }
+    }
+
+    private IEnumerator HandleEnemyDeath()
+    {
+        // Stop tous les scripts de type Poursuite pour geler le zombie
+        foreach (var comp in GetComponents<MonoBehaviour>())
+        {
+            if (comp != this && comp is Poursuite)
+                comp.enabled = false;
+        }
+        // attendre la fin du clip avant destruction
+        yield return new WaitForSeconds(3.5f); // Ajuste selon la durée de ton animation
+        Destroy(gameObject);
     }
 
     public void Heal(float amount)
     {
+        if (isDead) return;
+
         actuelleSante = Mathf.Clamp(actuelleSante + amount, 0f, maxSante);
         Debug.Log($"{gameObject.name} healed for {amount}. Health: {actuelleSante}/{maxSante}");
 
-        // Notifier listeners about health change
-        if (OnchangedSante != null)
-        {
-            OnchangedSante(ObtenirSanteNormalisee());
-        }
+        OnchangedSante?.Invoke(ObtenirSanteNormalisee());
     }
 }

@@ -1,10 +1,5 @@
 fileFormatVersion: 2
 guid: 887892bfa2741064a9f1a642a0522be9
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
   productId: 292251
@@ -12,3 +7,8 @@ AssetOrigin:
   packageVersion: 1.0
   assetPath: Assets/ArtStore3D/Zombie Cartoon/Prefab/Zombie Cartoon_01.prefab
   uploadId: 698257
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
