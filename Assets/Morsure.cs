@@ -18,7 +18,7 @@ public class Morsure : MonoBehaviour
     {
     // Vérifie si le collider a un composant SystemedeSante
     SystemeDeSante systemedesante = collision.gameObject.GetComponent<SystemeDeSante>();
-        if (systemedesante != null)
+        if (systemedesante != null && collision.gameObject.CompareTag("Player"))
         {
             systemedesante.TakeDamage(10f); // Fait subir 10 points de dégats lors de la collision
             Debug.Log("Morsure");

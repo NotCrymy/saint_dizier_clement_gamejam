@@ -5,7 +5,7 @@ public class BarredeSante : MonoBehaviour
 {
     [SerializeField] private Slider Sliderdesante;
     [SerializeField] private SystemeDeSante Systemdesante;
-    [SerializeField] private float smoothSpeed = 5f;
+    [SerializeField] private float smoothSpeed = 0.1f;
     private float targetFillAmount = 1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,5 +47,4 @@ public class BarredeSante : MonoBehaviour
             }
         }
     }
-
 }
