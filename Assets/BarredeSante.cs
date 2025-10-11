@@ -5,7 +5,6 @@ public class BarredeSante : MonoBehaviour
 {
     [SerializeField] private Slider Sliderdesante;
     [SerializeField] private SystemeDeSante Systemdesante;
-    [SerializeField] private float smoothSpeed = 0.1f;
     private float targetFillAmount = 1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,7 +26,7 @@ public class BarredeSante : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Sliderdesante.value = Mathf.Lerp(Sliderdesante.value, targetFillAmount, Time.deltaTime * smoothSpeed);
+        Sliderdesante.value = Mathf.Lerp(Sliderdesante.value, targetFillAmount, Time.deltaTime);
     }
 
     private void HandleHealthChanged(float normalizedHealth)

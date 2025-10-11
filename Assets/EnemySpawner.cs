@@ -4,30 +4,35 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("Réglages du spawn")]
     public GameObject[] enemyPrefabs;
-    public float spawnInterval = 2f;   // intervalle initial
-    public int maxEnemies = 10;        // max initial
+    public float spawnInterval = 2f;
+    public int maxEnemies = 10;
     public float spawnRadius = 5f;
 
     [Header("Progression")]
-    public float minSpawnInterval = 0.5f; // intervalle minimal
-    public float spawnAcceleration = 0.01f; // combien on réduit l'intervalle par seconde
-    public int maxEnemiesCap = 50; // nombre max global possible
+    public float minSpawnInterval = 0.5f;
+    public float spawnAcceleration = 0.01f;
+    public int maxEnemiesCap = 50;
+
+    [Header("Scaling des ennemis")]
+    public float speedIncrementPerSecond = 0.05f;   // vitesse supplémentaire par seconde
+    public float healthIncrementPerSecond = 1f;     // points de vie supplémentaires par seconde
 
     private float timer = 0f;
+    private float timeElapsed = 0f;
 
     void Update()
     {
-        timer += Time.deltaTime;
+        float delta = Time.deltaTime;
+        timer += delta;
+        timeElapsed += delta;
 
-        // Réduire progressivement l'intervalle
-        spawnInterval -= spawnAcceleration * Time.deltaTime;
+        // Réduire progressivement l'intervalle de spawn
+        spawnInterval -= spawnAcceleration * delta;
         if (spawnInterval < minSpawnInterval) spawnInterval = minSpawnInterval;
 
-        // Optionnel : augmenter maxEnemies avec le temps
+        // Augmenter progressivement le nombre max d'ennemis
         if (maxEnemies < maxEnemiesCap)
-        {
-            maxEnemies = Mathf.Min(maxEnemiesCap, maxEnemies + Mathf.FloorToInt(Time.deltaTime * 0.1f));
-        }
+            maxEnemies = Mathf.Min(maxEnemiesCap, maxEnemies + Mathf.FloorToInt(delta * 0.1f));
 
         if (timer >= spawnInterval)
         {
@@ -47,5 +52,19 @@ public class EnemySpawner : MonoBehaviour
 
         GameObject newEnemy = Instantiate(prefabToSpawn, spawnPos, transform.rotation);
         newEnemy.tag = "Enemy";
+
+        // Modifier la vitesse et la santé selon le temps écoulé
+        Poursuite poursuite = newEnemy.GetComponent<Poursuite>();
+        SystemeDeSante sante = newEnemy.GetComponent<SystemeDeSante>();
+
+        if (poursuite != null)
+        {
+            poursuite.vitesse += speedIncrementPerSecond * Time.time; // plus le jeu avance, plus vite
+        }
+
+        if (sante != null)
+        {
+            sante.Heal(healthIncrementPerSecond * Time.time); // augmente la santé initiale
+        }
     }
 }

@@ -78,7 +78,7 @@ public class SystemeDeSante : MonoBehaviour
         }
     }
 
-    private IEnumerator HandleEnemyDeath()
+private IEnumerator HandleEnemyDeath()
     {
         // Stop tous les scripts de type Poursuite pour geler le zombie
         foreach (var comp in GetComponents<MonoBehaviour>())
@@ -86,8 +86,16 @@ public class SystemeDeSante : MonoBehaviour
             if (comp != this && comp is Poursuite)
                 comp.enabled = false;
         }
+
+        // Ajouter des points
+        ScoreManager scoreManager = Object.FindAnyObjectByType<ScoreManager>();
+        if (scoreManager != null)
+        {
+            scoreManager.AddPoints(10); // par exemple 10 points par zombie
+        }
+
         // attendre la fin du clip avant destruction
-        yield return new WaitForSeconds(3.5f); // Ajuste selon la durée de ton animation
+        yield return new WaitForSeconds(3.5f); 
         Destroy(gameObject);
     }
 
