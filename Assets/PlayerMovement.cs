@@ -1,15 +1,21 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
-    public float strafeSpeed = 8f; // vitesse latérale
+    [Header("Paramètres")]
+    public float strafeSpeed = 8f;
+
     private Rigidbody rb;
+    private Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true; // évite que le joueur penche
+        rb.freezeRotation = true; // empêche le joueur de pencher
+
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -19,19 +25,29 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleStrafe()
     {
-        float move = 0f;
+        float strafeValue = 1.5f; // Default → Idle
+        float move = 0f;           // décalage réel pour le Rigidbody
 
-        if (Input.GetKey(KeyCode.A)) // gauche
+        // Détecte les touches
+        if (Input.GetKey(KeyCode.A))
         {
-            move = 1f;
-        }
-        else if (Input.GetKey(KeyCode.D)) // droite
-        {
+            strafeValue = 3.5f;  // LeftStrafe
             move = -1f;
         }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            strafeValue = 2.5f;  // RightStrafe
+            move = 1f;
+        }
 
-        // Déplacement fluide latéral via physique
+        // Déplacement latéral via Rigidbody
         Vector3 movement = transform.right * move * strafeSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + movement);
+
+        // Mettre à jour l'Animator
+        if (animator != null)
+        {
+            animator.SetFloat("StrafeDirection", strafeValue);
+        }
     }
 }
