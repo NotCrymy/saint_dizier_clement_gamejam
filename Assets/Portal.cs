@@ -5,11 +5,13 @@ public class Portal : MonoBehaviour
     public enum TypePortail { Bonus, Malus }
     public TypePortail typePortail;
     public float moveSpeed = 3f;
-    public float damageMultiplier = 2f; // x2 ou /2
+    public float damageMultiplier = 2f;
 
     void Start()
     {
-        
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        int portalLayer = LayerMask.NameToLayer("Portals");
+        Physics.IgnoreLayerCollision(portalLayer, enemyLayer, true);
     }
 
     void Update()

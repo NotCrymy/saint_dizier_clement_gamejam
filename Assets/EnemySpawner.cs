@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     public int maxEnemiesCap = 70;
 
     [Header("Scaling des ennemis")]
-    public float speedIncrementPerSecond = 0.05f;   // vitesse supplémentaire par seconde
+    public float speedIncrementPerSecond = 0.05f;
 
     private float timer = 0f;
     private float timeElapsed = 0f;

@@ -268,7 +268,7 @@ MonoBehaviour:
   maxEnemies: 10
   spawnRadius: 1
   minSpawnInterval: 0.5
-  spawnAcceleration: 0.5
+  spawnAcceleration: 0.05
   maxEnemiesCap: 70
   speedIncrementPerSecond: 0.02
 --- !u!4 &255986603
@@ -280,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 255986601}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 2.96, y: -1.01, z: 25.08}
+  m_LocalPosition: {x: 4.8, y: -1.01, z: 25.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -321,7 +321,7 @@ MonoBehaviour:
   maxEnemies: 10
   spawnRadius: 1
   minSpawnInterval: 0.5
-  spawnAcceleration: 0.4
+  spawnAcceleration: 0.05
   maxEnemiesCap: 70
   speedIncrementPerSecond: 0.02
 --- !u!4 &266429522
@@ -333,7 +333,7 @@ Transform:
   m_GameObject: {fileID: 266429520}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.33, y: -0.66, z: 27.13}
+  m_LocalPosition: {x: -2.1, y: -0.8, z: 27.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2127,7 +2127,7 @@ MonoBehaviour:
   maxEnemies: 10
   spawnRadius: 1
   minSpawnInterval: 0.5
-  spawnAcceleration: 0.1
+  spawnAcceleration: 0.05
   maxEnemiesCap: 70
   speedIncrementPerSecond: 0.02
 --- !u!4 &1550072208
@@ -2139,7 +2139,7 @@ Transform:
   m_GameObject: {fileID: 1550072206}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.21, y: 0.31, z: 17.07}
+  m_LocalPosition: {x: 1.1, y: 0.31, z: 17.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2837,7 +2837,7 @@ MonoBehaviour:
   maxEnemies: 10
   spawnRadius: 1
   minSpawnInterval: 0.5
-  spawnAcceleration: 0.1
+  spawnAcceleration: 0.05
   maxEnemiesCap: 25
   speedIncrementPerSecond: 0.02
 --- !u!4 &2041822123
@@ -3071,7 +3071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2039680912177272065}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3103,7 +3103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7788762880462336494}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3119,7 +3119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8697659315769377115}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandThumb3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3150,7 +3150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8969124971108634716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3166,7 +3166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7721087142998815131}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3826,7 +3826,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3714132607390646329}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3991,7 +3991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7618576033008722028}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4032,7 +4032,7 @@ GameObject:
   - component: {fileID: 870616690}
   - component: {fileID: 870616689}
   - component: {fileID: 5866666019904850126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -4390,7 +4390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1134575155658781437}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandThumb4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4492,6 +4492,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 813650414372632901, guid: 452ef834ecbcb4d45883e6c08a433bfa, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1500043608765224809, guid: 452ef834ecbcb4d45883e6c08a433bfa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4560,6 +4564,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5780756778277366360, guid: 452ef834ecbcb4d45883e6c08a433bfa, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6152578313236304689, guid: 452ef834ecbcb4d45883e6c08a433bfa, type: 3}
       propertyPath: lifetime
       value: 30
@@ -4567,6 +4575,10 @@ PrefabInstance:
     - target: {fileID: 8550784094723877423, guid: 452ef834ecbcb4d45883e6c08a433bfa, type: 3}
       propertyPath: m_Name
       value: PortalBonus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550784094723877423, guid: 452ef834ecbcb4d45883e6c08a433bfa, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4611,7 +4623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5804115370559008145}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4664,7 +4676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3932357647133463892}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5169,7 +5181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2077839057625908017}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5268,9 +5280,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalMalus
       objectReference: {fileID: 0}
+    - target: {fileID: 2292038379434161527, guid: ee2e0589c4d9d6e4594af00dc62f9934, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5916128989671710529, guid: ee2e0589c4d9d6e4594af00dc62f9934, type: 3}
       propertyPath: lifetime
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6098443981831092461, guid: ee2e0589c4d9d6e4594af00dc62f9934, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377338620403566055, guid: ee2e0589c4d9d6e4594af00dc62f9934, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5292,7 +5316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7972645333732522973}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5316,7 +5340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3708126737015236927}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5461,7 +5485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8492565731122819458}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5777,7 +5801,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4663068452305619615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5793,7 +5817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7217426692642287524}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5841,7 +5865,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 806810060077618895}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5936,7 +5960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5627404213232171566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandMiddle4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5968,7 +5992,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4111258744517008180}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6133,7 +6157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9102428634080566023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandRing4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6165,7 +6189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8757527071302539923}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6181,7 +6205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8048083317214688636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandIndex4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6213,7 +6237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7561269319465253559}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6398,7 +6422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1716929966461562477}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6572,7 +6596,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6751712052397468197}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6827,7 +6851,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3482441733636570039}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandPinky4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6894,7 +6918,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5150590849456663684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7046,7 +7070,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1076976940029619340}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandRing4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7094,7 +7118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8304936389786113095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7110,7 +7134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8928324454512591809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandPinky4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7126,7 +7150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4374583146927232138}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7142,7 +7166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6394320258591482426}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandPinky1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7191,7 +7215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1721883518418965095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7223,7 +7247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5611205333827510210}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_Reference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7382,7 +7406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5337661953694751373}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7398,7 +7422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5261560553641433310}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7617,7 +7641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1035370565944035030}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7806,7 +7830,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3846860377541287344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7987,7 +8011,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7678594080587301232}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8375,7 +8399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4623498213117264080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandThumb3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9003,7 +9027,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5892902085509999778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9035,7 +9059,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 326216043849612809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9051,7 +9075,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6355676131550417925}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandIndex4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9132,7 +9156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 693580470854329478}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandMiddle4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9225,7 +9249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4034689902048144190}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9396,7 +9420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7869844608542676915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9500,7 +9524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8311283746563073347}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9562,7 +9586,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1522133780060281675}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9796,7 +9820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 54401548840745754}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9812,7 +9836,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4538821090589310585}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9861,7 +9885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3591255091046052853}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9892,7 +9916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1187719248686974171}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandThumb4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10254,7 +10278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7300866592294971442}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10326,7 +10350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1045229815568063208}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10374,7 +10398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3485103600808831107}
   - component: {fileID: 5998218203295238195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_ArtStore3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10484,7 +10508,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5872609409792987654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10515,7 +10539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8222152252062261385}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10546,7 +10570,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4113340785397816335}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10610,7 +10634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1216590262127449618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandPinky1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10752,7 +10776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3985366294147544743}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10917,7 +10941,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 305722068616174721}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftHandPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10949,7 +10973,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5382867215840084181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11030,7 +11054,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3887259355019571459}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_RightHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11078,7 +11102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1252815694750879720}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombie_Cartoon_LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
