@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Progression")]
     public float minSpawnInterval = 0.5f;
     public float spawnAcceleration = 0.01f;
-    public int maxEnemiesCap = 50;
+    public int maxEnemiesCap = 70;
 
     [Header("Scaling des ennemis")]
     public float speedIncrementPerSecond = 0.05f;   // vitesse supplémentaire par seconde
@@ -26,11 +26,9 @@ public class EnemySpawner : MonoBehaviour
         timer += delta;
         timeElapsed += delta;
 
-        // Réduire progressivement l'intervalle de spawn
         spawnInterval -= spawnAcceleration * delta;
         if (spawnInterval < minSpawnInterval) spawnInterval = minSpawnInterval;
 
-        // Augmenter progressivement le nombre max d'ennemis
         if (maxEnemies < maxEnemiesCap)
             maxEnemies = Mathf.Min(maxEnemiesCap, maxEnemies + Mathf.FloorToInt(delta * 0.1f));
 
@@ -53,18 +51,17 @@ public class EnemySpawner : MonoBehaviour
         GameObject newEnemy = Instantiate(prefabToSpawn, spawnPos, transform.rotation);
         newEnemy.tag = "Enemy";
 
-        // Modifier la vitesse et la santé selon le temps écoulé
         Poursuite poursuite = newEnemy.GetComponent<Poursuite>();
         SystemeDeSante sante = newEnemy.GetComponent<SystemeDeSante>();
 
         if (poursuite != null)
         {
-            poursuite.vitesse += speedIncrementPerSecond * Time.time; // plus le jeu avance, plus vite
+            poursuite.vitesse += speedIncrementPerSecond * Time.time; 
         }
 
         if (sante != null)
         {
-            sante.Heal(healthIncrementPerSecond * Time.time); // augmente la santé initiale
+            sante.Heal(healthIncrementPerSecond * Time.time);
         }
     }
 }

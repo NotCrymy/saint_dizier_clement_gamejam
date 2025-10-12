@@ -9,10 +9,8 @@ public class CameraFollow : MonoBehaviour
     {
         if (player == null) return;
 
-        // La caméra garde toujours la même position relative
         transform.position = player.position + player.transform.TransformDirection(offset);
 
-        // Regarde toujours le joueur
         transform.LookAt(player);
     }
 }

@@ -17,7 +17,6 @@ public class EnemyHealthBar : MonoBehaviour
         systemeDeSante = GetComponent<SystemeDeSante>();
         if (systemeDeSante == null || healthBarPrefab == null) return;
 
-        // Instancie la barre
         barInstance = Instantiate(healthBarPrefab, transform.position + Vector3.up * heightOffset, Quaternion.identity);
         slider = barInstance.GetComponentInChildren<Slider>();
         if (slider != null)
@@ -27,7 +26,6 @@ public class EnemyHealthBar : MonoBehaviour
             slider.value = systemeDeSante.ObtenirSanteNormalisee();
         }
 
-        // S'abonner aux changements de santé
         systemeDeSante.OnchangedSante += UpdateHealth;
     }
 
@@ -39,7 +37,6 @@ public class EnemyHealthBar : MonoBehaviour
             barInstance.transform.position = transform.position + Vector3.up * heightOffset;
             barInstance.transform.LookAt(Camera.main.transform);
 
-            // Lerp pour smooth
             if (slider != null)
             {
                 slider.value = Mathf.Lerp(slider.value, targetValue, Time.deltaTime * smoothSpeed);
@@ -59,7 +56,7 @@ public class EnemyHealthBar : MonoBehaviour
                 fillImage.color = Color.Lerp(Color.red, Color.green, normalizedHealth);
         }
 
-        // Optionnel : cacher le slider quand à 0
+        // cacher le slider quand à 0
         if (barInstance != null)
             barInstance.SetActive(normalizedHealth > 0f);
     }

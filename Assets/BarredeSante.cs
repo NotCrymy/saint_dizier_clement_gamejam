@@ -6,6 +6,7 @@ public class BarredeSante : MonoBehaviour
     [SerializeField] private Slider Sliderdesante;
     [SerializeField] private SystemeDeSante Systemdesante;
     private float targetFillAmount = 1f;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,7 +16,6 @@ public class BarredeSante : MonoBehaviour
         Sliderdesante.maxValue = 1f;
         Sliderdesante.value = 1f;
 
-        // Initialize with current health
         float initialHealth = Systemdesante.ObtenirSanteNormalisee();
         targetFillAmount = Mathf.Clamp01(initialHealth);
         UpdateFillColor(initialHealth);

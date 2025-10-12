@@ -5,24 +5,23 @@ public class Attack : MonoBehaviour
 {
     public GameObject Projectile;
     public Transform Emitter;
-    public float frequency = 0.5f; // temps entre les tirs
-    public int Number = 1;          // nombre de projectiles par "salve"
+    public float frequency = 0.5f;
+    public int Number = 1;
 
-    private Coroutine shootingCoroutine = null; // référence pour stopper la coroutine
+    [Header("Dégâts")]
+    public float baseDamage = 20f;
+    public float damageMultiplier = 1f;
+
+    private Coroutine shootingCoroutine = null;
 
     void Update()
     {
-        // Quand on appuie sur Ctrl
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             if (shootingCoroutine == null)
-            {
-                // Démarre le tir
                 shootingCoroutine = StartCoroutine(BulletLaunching());
-            }
             else
             {
-                // Stop le tir
                 StopCoroutine(shootingCoroutine);
                 shootingCoroutine = null;
             }
@@ -36,11 +35,16 @@ public class Attack : MonoBehaviour
 
     IEnumerator BulletLaunching()
     {
-        while (true) // tir automatique tant que la coroutine tourne
+        while (true)
         {
             for (int i = 0; i < Number; i++)
             {
                 GameObject bullet = Instantiate(Projectile, Emitter.position, Emitter.rotation);
+                
+                Projectile projectileScript = bullet.GetComponent<Projectile>();
+                if (projectileScript != null)
+                    projectileScript.damage = baseDamage * damageMultiplier;
+
                 Destroy(bullet, 2f);
 
                 Rigidbody rb = bullet.GetComponent<Rigidbody>();
@@ -50,5 +54,11 @@ public class Attack : MonoBehaviour
 
             yield return new WaitForSeconds(frequency);
         }
+    }
+
+    public void ApplyDamageMultiplier(float multiplier)
+    {
+        damageMultiplier *= multiplier;
+        Debug.Log($"Nouveau multiplicateur de dégâts : x{damageMultiplier}");
     }
 }

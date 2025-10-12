@@ -21,13 +21,11 @@ public class SystemeDeSante : MonoBehaviour
         actuelleSante = maxSante;
         animator = GetComponent<Animator>();
 
-        // Assurer que le zombie démarre sur l'animation Walking
         if (animator != null)
         {
             animator.SetBool("IsDead", false);
         }
 
-        // Informe les autres classes à propos de la santé initiale
         OnchangedSante?.Invoke(ObtenirSanteNormalisee());
     }
 
@@ -60,7 +58,6 @@ public class SystemeDeSante : MonoBehaviour
 
         if (animator != null)
         {
-            // Arrêter la marche et lancer la mort
             animator.SetBool("IsDead", true);
         }
 
@@ -80,21 +77,18 @@ public class SystemeDeSante : MonoBehaviour
 
 private IEnumerator HandleEnemyDeath()
     {
-        // Stop tous les scripts de type Poursuite pour geler le zombie
         foreach (var comp in GetComponents<MonoBehaviour>())
         {
             if (comp != this && comp is Poursuite)
                 comp.enabled = false;
         }
 
-        // Ajouter des points
         ScoreManager scoreManager = Object.FindAnyObjectByType<ScoreManager>();
         if (scoreManager != null)
         {
-            scoreManager.AddPoints(10); // par exemple 10 points par zombie
+            scoreManager.AddPoints(10);
         }
 
-        // attendre la fin du clip avant destruction
         yield return new WaitForSeconds(3.5f); 
         Destroy(gameObject);
     }
