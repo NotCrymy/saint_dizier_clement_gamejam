@@ -266,12 +266,11 @@ MonoBehaviour:
   - {fileID: 919132147938560012}
   spawnInterval: 2
   maxEnemies: 10
-  spawnRadius: 0
+  spawnRadius: 1
   minSpawnInterval: 0.5
-  spawnAcceleration: 0.01
-  maxEnemiesCap: 50
-  speedIncrementPerSecond: 0.05
-  healthIncrementPerSecond: 1
+  spawnAcceleration: 0.5
+  maxEnemiesCap: 70
+  speedIncrementPerSecond: 0.02
 --- !u!4 &255986603
 Transform:
   m_ObjectHideFlags: 0
@@ -320,12 +319,11 @@ MonoBehaviour:
   - {fileID: 919132147938560012}
   spawnInterval: 2
   maxEnemies: 10
-  spawnRadius: 0
+  spawnRadius: 1
   minSpawnInterval: 0.5
-  spawnAcceleration: 0.01
-  maxEnemiesCap: 50
-  speedIncrementPerSecond: 0.05
-  healthIncrementPerSecond: 1
+  spawnAcceleration: 0.4
+  maxEnemiesCap: 70
+  speedIncrementPerSecond: 0.02
 --- !u!4 &266429522
 Transform:
   m_ObjectHideFlags: 0
@@ -910,7 +908,7 @@ MonoBehaviour:
   - {fileID: 2080188961}
   - {fileID: 1515879404}
   minSpawnInterval: 5
-  maxSpawnInterval: 10
+  maxSpawnInterval: 15
 --- !u!4 &638120849
 Transform:
   m_ObjectHideFlags: 0
@@ -959,7 +957,7 @@ MonoBehaviour:
   - {fileID: 2080188961}
   - {fileID: 1515879404}
   minSpawnInterval: 5
-  maxSpawnInterval: 10
+  maxSpawnInterval: 15
 --- !u!4 &643325097
 Transform:
   m_ObjectHideFlags: 0
@@ -2093,12 +2091,11 @@ MonoBehaviour:
   - {fileID: 919132147938560012}
   spawnInterval: 2
   maxEnemies: 10
-  spawnRadius: 0
+  spawnRadius: 1
   minSpawnInterval: 0.5
-  spawnAcceleration: 0.01
-  maxEnemiesCap: 50
-  speedIncrementPerSecond: 0.05
-  healthIncrementPerSecond: 1
+  spawnAcceleration: 0.1
+  maxEnemiesCap: 70
+  speedIncrementPerSecond: 0.02
 --- !u!4 &1550072208
 Transform:
   m_ObjectHideFlags: 0
@@ -2770,12 +2767,11 @@ MonoBehaviour:
   - {fileID: 919132147938560012}
   spawnInterval: 2
   maxEnemies: 10
-  spawnRadius: 0
+  spawnRadius: 1
   minSpawnInterval: 0.5
-  spawnAcceleration: 0.01
-  maxEnemiesCap: 50
-  speedIncrementPerSecond: 0.05
-  healthIncrementPerSecond: 1
+  spawnAcceleration: 0.1
+  maxEnemiesCap: 25
+  speedIncrementPerSecond: 0.02
 --- !u!4 &2041822123
 Transform:
   m_ObjectHideFlags: 0
@@ -7946,8 +7942,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.2, z: 1}
-  m_Center: {x: 0, y: 1.2, z: 0}
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &5866666019904850126
 MonoBehaviour:
   m_ObjectHideFlags: 0

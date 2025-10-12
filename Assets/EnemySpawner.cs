@@ -15,7 +15,6 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Scaling des ennemis")]
     public float speedIncrementPerSecond = 0.05f;   // vitesse supplémentaire par seconde
-    public float healthIncrementPerSecond = 1f;     // points de vie supplémentaires par seconde
 
     private float timer = 0f;
     private float timeElapsed = 0f;
@@ -54,14 +53,16 @@ public class EnemySpawner : MonoBehaviour
         Poursuite poursuite = newEnemy.GetComponent<Poursuite>();
         SystemeDeSante sante = newEnemy.GetComponent<SystemeDeSante>();
 
-        if (poursuite != null)
-        {
-            poursuite.vitesse += speedIncrementPerSecond * Time.time; 
-        }
-
+        float multiplier = Mathf.Pow(2f, timeElapsed / 10f);
         if (sante != null)
         {
-            sante.Heal(healthIncrementPerSecond * Time.time);
+            float newMax = sante.MaxSante * multiplier;
+            sante.SetHealth(newMax, newMax);
+        }
+
+        if (poursuite != null)
+        {
+            poursuite.vitesse += speedIncrementPerSecond * Time.time * 2f; 
         }
     }
 }

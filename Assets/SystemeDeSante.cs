@@ -75,12 +75,18 @@ public class SystemeDeSante : MonoBehaviour
         }
     }
 
-private IEnumerator HandleEnemyDeath()
+    private IEnumerator HandleEnemyDeath()
     {
-        foreach (var comp in GetComponents<MonoBehaviour>())
+        // Désactive Poursuite
+        foreach (var poursuite in GetComponents<Poursuite>())
         {
-            if (comp != this && comp is Poursuite)
-                comp.enabled = false;
+            poursuite.enabled = false;
+        }
+
+        // Désactive Morsure
+        foreach (var morsure in GetComponents<Morsure>())
+        {
+            morsure.enabled = false;
         }
 
         ScoreManager scoreManager = Object.FindAnyObjectByType<ScoreManager>();
@@ -93,13 +99,10 @@ private IEnumerator HandleEnemyDeath()
         Destroy(gameObject);
     }
 
-    public void Heal(float amount)
-    {
-        if (isDead) return;
-
-        actuelleSante = Mathf.Clamp(actuelleSante + amount, 0f, maxSante);
-        Debug.Log($"{gameObject.name} healed for {amount}. Health: {actuelleSante}/{maxSante}");
-
-        OnchangedSante?.Invoke(ObtenirSanteNormalisee());
-    }
+    public void SetHealth(float newMax, float newCurrent)
+        {
+            maxSante = newMax;
+            actuelleSante = Mathf.Clamp(newCurrent, 0f, newMax);
+            OnchangedSante?.Invoke(ObtenirSanteNormalisee());
+        }
 }
