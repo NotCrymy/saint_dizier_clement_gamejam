@@ -5,7 +5,7 @@ public class PortalSpawner : MonoBehaviour
     [Header("Réglages de spawn")]
     public GameObject[] portalPrefabs; // Liste des portails (bonus / malus)
     public float minSpawnInterval = 5f; // intervalle minimum
-    public float maxSpawnInterval = 10f; // intervalle maximum
+    public float maxSpawnInterval = 15f; // intervalle maximum
 
     private float timer = 0f;
     private float nextSpawnTime;
@@ -39,6 +39,8 @@ public class PortalSpawner : MonoBehaviour
 
         GameObject prefab = portalPrefabs[Random.Range(0, portalPrefabs.Length)];
 
-        Instantiate(prefab, transform.position, Quaternion.identity);
+        GameObject newPortal = Instantiate(prefab, transform.position, transform.rotation);
+
+        Destroy(newPortal, 30f); // Détruire après 30 secondes
     }
 }

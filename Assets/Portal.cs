@@ -6,11 +6,10 @@ public class Portal : MonoBehaviour
     public TypePortail typePortail;
     public float moveSpeed = 3f;
     public float damageMultiplier = 2f; // x2 ou /2
-    public float lifetime = 30f;        // auto-destruction après 30 secondes
 
     void Start()
     {
-        Destroy(gameObject, lifetime);
+        
     }
 
     void Update()
