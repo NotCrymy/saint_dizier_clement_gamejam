@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true; // empêche le joueur de pencher
+        rb.freezeRotation = true;
 
         animator = GetComponent<Animator>();
     }
@@ -25,18 +25,18 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleStrafe()
     {
-        float strafeValue = 1.5f; // Default → Idle
-        float move = 0f;           // décalage réel pour le Rigidbody
+        float strafeValue = 1.5f;
+        float move = 0f; 
 
         // Détecte les touches
         if (Input.GetKey(KeyCode.A))
         {
-            strafeValue = 3.5f;  // LeftStrafe
+            strafeValue = 3.5f;
             move = -1f;
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            strafeValue = 2.5f;  // RightStrafe
+            strafeValue = 2.5f;
             move = 1f;
         }
 

@@ -7,7 +7,6 @@ public class SystemeDeSante : MonoBehaviour
 
     [SerializeField] private float maxSante = 100f;
     [SerializeField] private float actuelleSante;
-    public Canvas deathCanvas;
 
     private Animator animator;
     private bool isDead = false;
@@ -63,9 +62,9 @@ public class SystemeDeSante : MonoBehaviour
 
         if (CompareTag("Player"))
         {
+            GameManager gm = Object.FindAnyObjectByType<GameManager>();
             // Mort du joueur
-            if (deathCanvas != null)
-                deathCanvas.gameObject.SetActive(true);
+            gm.EndGame();
 
             Destroy(gameObject);
         }
