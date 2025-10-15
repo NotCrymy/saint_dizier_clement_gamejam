@@ -49,7 +49,7 @@ public class Attack : MonoBehaviour
 
                 Rigidbody rb = bullet.GetComponent<Rigidbody>();
                 if (rb != null)
-                    rb.AddForce(100f * Emitter.forward, ForceMode.Impulse);
+                    rb.AddForce(-100f * Emitter.forward, ForceMode.Impulse);
             }
 
             yield return new WaitForSeconds(frequency);
