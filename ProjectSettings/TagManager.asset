@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - CinemachineTarget
+  - Portals
+  - PortalBonus
+  - PortalMalus
   layers:
   - Default
   - TransparentFX
