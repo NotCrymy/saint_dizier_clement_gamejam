@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // Assure que le panel Game Over est désactivé au début
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
     }
@@ -31,19 +30,15 @@ public class GameManager : MonoBehaviour
     {
         gameEnded = true;
 
-        // Affiche le panel Game Over
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
 
-        // Met à jour le score final
         if (scoreManager != null && finalScoreText != null)
             finalScoreText.text = $"Score final : {scoreManager.getPoints()}";
 
-        // Met à jour le temps de jeu
         if (timerText != null)
             timerText.text = $"Temps de jeu : {Mathf.FloorToInt(elapsedTime)}s";
 
-        // Ensuite, stoppe le temps du jeu
         Time.timeScale = 0f;
     }
 

@@ -1,22 +1,27 @@
 using UnityEngine;
+using TMPro; // Nécessaire pour TextMeshPro
 
 public class Portal : MonoBehaviour
 {
     public enum TypePortail { Bonus, Malus }
     public TypePortail typePortail;
     public float moveSpeed = 3f;
-    public float damageMultiplier = 2f;
+    public float damageMultiplier = 1f;
+
+    [Header("UI")]
+    public TextMeshPro multiplierText;
 
     void Start()
     {
         int enemyLayer = LayerMask.NameToLayer("Enemy");
         int portalLayer = LayerMask.NameToLayer("Portals");
         Physics.IgnoreLayerCollision(portalLayer, enemyLayer, true);
+
+        UpdateText();
     }
 
     void Update()
     {
-        // Avance tout droit selon sa direction locale
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
@@ -35,5 +40,25 @@ public class Portal : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+
+    public void ModifyDamageMultiplier(float amount)
+    {
+        float step = amount * 0.01f;
+
+        if (typePortail == TypePortail.Bonus)
+            damageMultiplier += step; // augmente
+        else
+            damageMultiplier -= step; // diminue
+
+        UpdateText();
+    }
+
+    private void UpdateText()
+    {
+        if (multiplierText != null && typePortail == TypePortail.Bonus)
+            multiplierText.text = $"x{damageMultiplier:F2}";
+        if (multiplierText != null && typePortail == TypePortail.Malus)
+            multiplierText.text = $"x{(1f / damageMultiplier):F2}";
     }
 }

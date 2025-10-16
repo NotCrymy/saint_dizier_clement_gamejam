@@ -15,5 +15,16 @@ public class Projectile : MonoBehaviour
                 systemeDeSante.TakeDamage(damage);
             }
         }
+        if (other.CompareTag("PortalBonus") || other.CompareTag("PortalMalus"))
+        {
+            Portal portal = other.GetComponent<Portal>();
+            if (portal != null)
+            {
+                portal.ModifyDamageMultiplier(2f);
+            }
+
+            Destroy(gameObject);
+        }
     }
+    
 }
